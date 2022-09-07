@@ -45,7 +45,7 @@ In order to run this program,
 
 Clone This Repo;
 
-`git clone https://github.com/TosinISOGUN/simple_shell.git`
+`git clone https://github.com/Samfrodo9/simple_shell.git`
 
 Compile it with;
 
@@ -216,6 +216,8 @@ $
 ## AUTHORS
 
 ### 🤵🏼 Samuel Adeyemi
+
+#### 🤵🏼 Fredrick Adebayo
 
 
 ###### [Twitter](https://twitter.com/adeyemifrodo?t=6JGpNMULaRPkxUWk-9pGug&s=09) ![image](https://user-images.githubusercontent.com/106933402/185825114-48aecc27-08d6-42fe-a77a-811439356247.png)
