@@ -1,5 +1,5 @@
-#ifndef /* SHELL_H */
-#define /* SHELL_H */
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,5 +11,10 @@
 
 
 void prompt(void);
+int _putchar(char c);
+void interactive(void);
+void non_interactive(void);
+char *_getline(void);
+char **_strtok(char *str);
 
 #endif
