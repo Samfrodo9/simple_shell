@@ -6,28 +6,25 @@
  * Return: an array of strings
  */
 
-char **_strtok(char *str)
+char **_strtok(char *str, char *delim)
 {
 	char **strings = NULL;
 	char *temp = NULL;
 
 	int i = 0;
-	
-	printf("%s\n", str);
 
-	strings = malloc(sizeof(char *) * (strlen(str) + 1));
+	strings = malloc(sizeof(char *) * (_strlen(str) + 1));
 	
-	temp = strtok(str, ";");
+	temp = strtok(str, delim);
 
 	while(temp != NULL)
 	{
-		strings[i] = malloc(sizeof(char) * (strlen(temp) + 1));/* Define Strlen */
-		strcpy(strings[i], temp); /* Handle Null terminating character */
+		strings[i] = malloc(sizeof(char) * (_strlen(temp) + 1));
+		_strcpy(strings[i], temp); /* Handle Null terminating character */
 		i++;
-		temp = strtok(NULL, ";");
+		temp = strtok(NULL, delim);
 	}
 
 	strings[i] = NULL;
-	printf("%d\n", i);
 	return (strings);
 }
