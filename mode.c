@@ -16,27 +16,27 @@ void interactive(void)
 	char delim[] = {' ', '\n'};
 
 	prompt();
-	str = _getline();
+	str = _getline(); /* command from keyboard */
 	cmd = _strtok(str, ";");/* Remember to free cmd */
 
-	while (cmd[i])
+	while (cmd[i]) /* printing out all the tokenized command from keyboard */
 	{	
 		printf("%s\n", cmd[i]);
 		i++;
 	}
 
 
-	while (cmd[j])
+	while (cmd[j]) /* e.g "ls -l" "ls -l /tmp" are stored here */
 	{
 		i = 0;
-		cmd2 = _strtok(cmd[j], delim);
+		cmd2 = _strtok(cmd[j], delim); /* e.g "ls" "-l" "/tmp" are stored here */
 
 		do
 		{
 			printf("before calling addpath\n");
 			printf("%s\n", cmd2[i]);
 			/* Add path */
-			add_path(cmd2[i], cmd2);
+			add_path(cmd2[i], cmd2); 
 
 			//execute; /* Check built-ins before executing */
 			i++;

@@ -3,13 +3,10 @@
 
 void add_path(char *arg, char **argv)
 {
-	char *store = NULL;
+	char *store, *arg2, *path, *value = NULL;
 	char newpath[100];
-	char *arg2 = NULL;
-	char *path = NULL;
 	int i = 0;
 	char *find = "PATH";
-	char *value;
 	struct stat check;
 	int status;
 	pid_t forkRV;
