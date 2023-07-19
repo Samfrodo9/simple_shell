@@ -7,13 +7,13 @@ void add_path(char *arg, char **argv)
 	char newpath[100];
 	int i = 0;
 	char *find = "PATH";
-	struct stat check;
 	int status;
 	pid_t forkRV;
+	int check = 100;
 
-	arg2 = strdup(arg);
+	arg2 = strdup(arg); /* Storing ls -l here */
 
-	while(environ[i])
+	while(environ[i]) /* environment variable */
 	{
 		store = _strstr(environ[i], find);
 		if (store)
@@ -28,9 +28,9 @@ void add_path(char *arg, char **argv)
 
 	i = 0;
 
-	path = strtok(arg2, " ");
+	path = strtok(arg2, " "); /* Tokenizing ls -l to give us ls only */
 	
-	value = strtok(store, ":");
+	value = strtok(store, ":"); /* Tokenizing PATH vvariable */
 
 
 	do
@@ -46,27 +46,9 @@ void add_path(char *arg, char **argv)
 
 		printf("PATH[%d] = %s\n", i, newpath);
 
-		if (stat(newpath, &check) == 0)
-		{
-				printf("Found %s\n", newpath);
-				sleep(3);
-				forkRV = fork();
-		
-
-				if (forkRV == 0)
-				{
-					execve(newpath, argv, NULL);
-				}
-
-				else
-				{
-					printf("waiting\n");
-					wait (&status);
-					printf("Breaking now\n");
-					break;
-				}
-
-		}
+		check = _execute(newpath, argv);
+		if (check == 1)
+			break;
 
 		i++;
 		value = strtok(NULL, ":");
@@ -74,31 +56,4 @@ void add_path(char *arg, char **argv)
 	while(value);
 	
 	printf("%d\n", i);
-}
-
-/**
- * *_strstr - locates a substring
- * @haystack: string to search in
- * @needle: substring to look for
- *
- * Return: pointer to the beginning of the located substring
- * or NULL if the substring is not found
- */
-
-
-char *_strstr(char *haystack, char *needle)
-{
-	int i, j;
-
-	for (i = 0; haystack[i] != '\0'; i++)
-	{
-		for (j = 0; needle[j] != '\0'; j++)
-		{
-			if (haystack[i + j] != needle[j])
-				break;
-		}
-		if (!needle[j])
-			return &(haystack[i + strlen(needle) + 1]);
-	}
-	
 }

@@ -23,5 +23,6 @@ void _puts(char *str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 void add_path(char *arg, char **argv);
+int _execute(char *path, char **argv);
 
 #endif
