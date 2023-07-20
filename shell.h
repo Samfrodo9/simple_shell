@@ -24,5 +24,6 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 void add_path(char *arg, char **argv);
 int _execute(char *path, char **argv);
+int check(char *str, char**buffer);
 
 #endif

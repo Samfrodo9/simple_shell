@@ -14,6 +14,9 @@ char **_strtok(char *str, char *delim)
 	int i = 0;
 
 	strings = malloc(sizeof(char *) * (_strlen(str) + 1));
+
+	if (!strings)
+		exit(EXIT_FAILURE);
 	
 	temp = strtok(str, delim);
 

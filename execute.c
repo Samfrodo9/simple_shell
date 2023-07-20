@@ -1,7 +1,7 @@
 #include "shell.h"
 
 
-int _execute(char *path, char**argv)
+int _execute(char *path, char **argv)
 {
 	struct stat check;
 	pid_t forkRV;

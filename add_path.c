@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * add_path - adds the path.
+ *@arg: first argument from keyboard
+ *@argv: array of strings
+ *
+ * Return: void
+ */
 
 void add_path(char *arg, char **argv)
 {
@@ -7,8 +14,6 @@ void add_path(char *arg, char **argv)
 	char newpath[100];
 	int i = 0;
 	char *find = "PATH";
-	int status;
-	pid_t forkRV;
 	int check = 100;
 
 	arg2 = strdup(arg); /* Storing ls -l here */
@@ -29,7 +34,7 @@ void add_path(char *arg, char **argv)
 	i = 0;
 
 	path = strtok(arg2, " "); /* Tokenizing ls -l to give us ls only */
-	
+
 	value = strtok(store, ":"); /* Tokenizing PATH vvariable */
 
 

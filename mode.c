@@ -24,25 +24,22 @@ void interactive(void)
 		printf("%s\n", cmd[i]);
 		i++;
 	}
-
-
-	while (cmd[j]) /* e.g "ls -l" "ls -l /tmp" are stored here */
+	i = 0;
+	while (cmd[i]) /* e.g "ls -l" "ls -l /tmp" are stored here */
 	{
-		i = 0;
-		cmd2 = _strtok(cmd[j], delim); /* e.g "ls" "-l" "/tmp" are stored here */
+		cmd2 = _strtok(cmd[i], delim); /* e.g "ls" "-l" "/tmp" are stored here */
+		/* Try to execute built ins first */
+		/** _execute(cmd2[0], char **argv);
 
-		do
-		{
-			printf("before calling addpath\n");
-			printf("%s\n", cmd2[i]);
-			/* Add path */
-			add_path(cmd2[i], cmd2); 
+		printf("before calling addpath\n");
+		printf("%s\n", cmd2[i]);
+		Add path
+		add_path(cmd2[i], cmd2); 
+		*/
+		check(cmd2[0], cmd2);
+		i++;
 
-			//execute; /* Check built-ins before executing */
-			i++;
-		}
-		while(cmd2[i]);
-		j++;
+		//execute; /* Check built-ins before executing */			
 	}
 }
 /**
