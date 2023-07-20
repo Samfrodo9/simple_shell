@@ -10,7 +10,7 @@ char *_getline(void)
 	char *receive = NULL;
 	size_t n = 0;
 
-	if (getline(&receive, &n, stdin) == -1);
+	if (getline(&receive, &n, stdin) == -1)
 	{
 		if (feof(stdin))
 		{
@@ -26,5 +26,7 @@ char *_getline(void)
 			exit(EXIT_FAILURE);
 		}
 	}
+		printf("input is %s\n", receive);
+
 	return (receive);
 }
