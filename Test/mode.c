@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * interactive - prints prompt.
  *
@@ -9,39 +8,31 @@
 
 void interactive(void)
 {
-	char *str = NULL;
-	char **cmd = NULL; /* Interactive command one to tokenize to command two */
-	char **cmd2 = NULL; /* Interactive command two to pass to execve */
-	int i = 0, j = 0;
-	char delim[] = {' ', '\n'};
+	char *stream = NULL;
+	char *terminal = NULL; /* Interactive command one to tokenize to command two */
+	char **str = NULL; /* Interactive command two to pass to execve */
+	int control = -100;
 
-	prompt();
-	str = _getline(); /* command from keyboard */
-	cmd = _strtok(str, ";");/* Remember to free cmd */
+	do {
+		prompt();
+		stream = _getline(); /* command from keyboard */
+		terminal = strtok(stream, ";"); /* terminal = "ls -l /tmp" */
 
-	while (cmd[i]) /* printing out all the tokenized command from keyboard */
-	{	
-		printf("%s\n", cmd[i]);
-		i++;
-	}
-	i = 0;
-	while (cmd[i]) /* e.g "ls -l" "ls -l /tmp" are stored here */
-	{
-		cmd2 = _strtok(cmd[i], delim); /* e.g "ls" "-l" "/tmp" are stored here */
-		/* Try to execute built ins first */
-		/** _execute(cmd2[0], char **argv);
+		while(terminal)
+		{
+			/* str = {"ls",  */
+			str = _strtok(terminal); /* Return an array of strings */
+			control = builtins(str);
+			terminal = strtok(NULL, ";");
+		}
 
-		printf("before calling addpath\n");
-		printf("%s\n", cmd2[i]);
-		Add path
-		add_path(cmd2[i], cmd2); 
-		*/
-		check(cmd2[0], cmd2);
-		i++;
-
-		//execute; /* Check built-ins before executing */			
-	}
+		free(stream);
+		free_tokens(str);
+		if (control >= 0)
+			exit(control)
+	} while (control == -100);
 }
+
 /**
  * non_interactive - prints prompt.
  *

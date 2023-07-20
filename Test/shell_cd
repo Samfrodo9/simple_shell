@@ -1,0 +1,43 @@
+#include "shell.h"
+
+/**
+ * cd_dir - function to change the working directory
+ * @argv: arguments
+ * 
+ * Return: 1 on success, 0 on failure
+*/
+
+int cd_dir(char **argv)
+{
+    char *new_path = argv[1];
+    char *current_path;
+
+    if (new_path == NULL)
+        new_path = getenv("HOME");
+    else
+    {
+        switch (new_path[0])
+        {
+            case '~':
+                new_path = getenv("HOME");
+                break;
+            case '-':
+                new_path = getenv("OLDPWD");
+                break;
+            default:
+                /* No need to do change 'new_path' here, okay? */
+                break;
+        }
+    }
+
+    if (chdir(new_path) != 0)
+    {
+        perror("cd failed");
+        return (0);
+    }
+
+    current_path - getcwd(NULL, 0);
+    setenv("PWD", current_path, 1);
+    free(current_path);
+
+}
