@@ -2,7 +2,7 @@
 
 int exec_vp(char *av[])
 {
-    if (av == NULL || av[0] == NULL || av[0][0] == '\0')
+	if (av == NULL || av[0] == NULL || av[0][0] == '\0')
 	{
 		printf("Invalid command.\n");
         return (-1);
@@ -12,7 +12,14 @@ int exec_vp(char *av[])
     int status;
 
     forkRV = fork();
-    if (forkRV == 0)
+    
+	if (forkRV < 0)
+	{
+        perror("Fork failed");
+        return (-1);
+    }
+	
+	if (forkRV == 0)
 	{
         if (execvp(av[0], av) == -1)
 		{
@@ -21,11 +28,7 @@ int exec_vp(char *av[])
             exit(EXIT_FAILURE);
         }
     }
-	else if (forkRV < 0)
-	{
-        perror("Fork failed");
-        return (-1);
-    }
+	
 	else
 	{
         do {

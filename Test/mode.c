@@ -11,14 +11,16 @@ void interactive(void)
 	char *stream = NULL;
 	char *terminal = NULL; /* Interactive command one to tokenize to command two */
 	char **str = NULL; /* Interactive command two to pass to execve */
-	int control = -100;
+	int control = -1;
 	char delim[] = {' ', '\n'};
 
 	do {
 		prompt();
 		stream = _getline(); /* command from keyboard */
+		printf("Stream is %s\n", stream);
 		terminal = strtok(stream, ";"); /* terminal = "ls -l /tmp" */
-
+		printf("Terminal is %s\n", terminal);
+		int i = 0;
 		while(terminal)
 		{
 			/* str = {"ls",  */
@@ -31,7 +33,7 @@ void interactive(void)
 		free_tokens(str);
 		if (control >= 0)
 			exit(control);
-	} while (control == -100);
+	} while (control == -1);
 }
 
 /**

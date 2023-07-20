@@ -46,7 +46,13 @@ char **_strtok(char *str, char *delim)
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
-	return strings;
+	i = 0;
+	while(strings[i])
+			{
+				printf("strings[%d] = %s\n", i, strings[i]);
+				i++;
+			}
+	return (strings);
 }
 
 /**
