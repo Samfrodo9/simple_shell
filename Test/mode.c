@@ -12,6 +12,7 @@ void interactive(void)
 	char *terminal = NULL; /* Interactive command one to tokenize to command two */
 	char **str = NULL; /* Interactive command two to pass to execve */
 	int control = -100;
+	char delim[] = {' ', '\n'};
 
 	do {
 		prompt();
@@ -21,15 +22,15 @@ void interactive(void)
 		while(terminal)
 		{
 			/* str = {"ls",  */
-			str = _strtok(terminal); /* Return an array of strings */
-			control = builtins(str);
+			str = _strtok(terminal, delim); /* Return an array of strings */
+			control = executeBuiltins(str);
 			terminal = strtok(NULL, ";");
 		}
 
 		free(stream);
 		free_tokens(str);
 		if (control >= 0)
-			exit(control)
+			exit(control);
 	} while (control == -100);
 }
 

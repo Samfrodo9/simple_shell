@@ -53,13 +53,14 @@ int exec_env(char **str)
 {
 
     int a = 0;
+    char line = '\n';
 
     (void)(**str);
 
     while(environ[a])
     {
         write(STDIN_FILENO, environ[a], strlen(environ[a]));
-        write(STDIN_FILENO, '\n', 1);
+        write(STDIN_FILENO, &line, 1);
         a++;
     }
     return (0);

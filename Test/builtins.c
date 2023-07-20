@@ -11,9 +11,9 @@
 int executeBuiltins(char **str)
 {
     struct BuiltInCommands builtins[] = {
-        {"cd", "exec_cd_dir"}
-        {"env", "exec_env"}
-        {"exit", "exec_exit"}
+        {"cd", &exec_cd_dir},
+        {"env", &exec_env},
+        {"exit", &exec_exit},
         {NULL, NULL}
     }; 
 
@@ -22,10 +22,10 @@ int executeBuiltins(char **str)
     if (str[0] == NULL)
         return (-1);
 
-    while (builtin[i].name != NULL)
+    while (builtins[i].name != NULL)
     {
         if (strcmp(str[0], builtins[i].name) == 0)
-            return (builtins[i].func(str));
+            return (builtins[i].funct(str));
         i++;
     }
 
