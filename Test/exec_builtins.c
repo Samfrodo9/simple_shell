@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * cd_dir - function to change the working directory
+ * exec_cd_dir - function to change the working directory
  * @argv: arguments
  * 
  * Return: 1 on success, 0 on failure
 */
 
-int cd_dir(char **argv)
+int exec_cd_dir(char **argv)
 {
     char *new_path = argv[1];
     char *current_path;
@@ -40,4 +40,45 @@ int cd_dir(char **argv)
     setenv("PWD", current_path, 1);
     free(current_path);
 
+}
+
+
+/**
+ * exec_env - a function that prints environment variables
+ * @str: argument vector containing the command and it argumments
+ * Return: 0 on success
+*/
+
+int exec_env(char **str)
+{
+
+    int a = 0;
+
+    (void)(**str);
+
+    while(environ[a])
+    {
+        write(STDIN_FILENO, environ[a], strlen(environ[a]));
+        write(STDIN_FILENO, '\n', 1);
+        a++;
+    }
+    return (0);
+}
+
+
+/**
+ * exec_exit - A function that terminates a process
+ * @str: argument
+ * 
+ * Return: 0 on success
+*/
+
+int exec_exit(char **str)
+{
+    if (str[1])
+    {
+        return (atoi(str[1]));
+    }
+    else
+        return (0);
 }

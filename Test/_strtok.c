@@ -7,7 +7,7 @@
  * Return: an array of strings
  */
 
-char **_strtok(char *str, const char *delim)
+char **_strtok(char *str, char *delim)
 {
 	char **strings = NULL;
 	char *temp, *copy = NULL;
