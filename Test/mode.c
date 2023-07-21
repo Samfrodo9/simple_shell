@@ -17,10 +17,8 @@ void interactive(void)
 	do {
 		prompt();
 		stream = _getline(); /* command from keyboard */
-		printf("Stream is %s\n", stream);
 		terminal = strtok(stream, ";"); /* terminal = "ls -l /tmp" */
-		printf("Terminal is %s\n", terminal);
-		int i = 0;
+
 		while(terminal)
 		{
 			/* str = {"ls",  */

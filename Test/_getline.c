@@ -14,19 +14,16 @@ char *_getline(void)
 	{
 		if (feof(stdin))
 		{
-			printf("%s\n", receive);
 			free(receive);
 			exit(EXIT_SUCCESS);
 		}
 		else
 		{
-			printf("%s\n", receive);
 			free(receive);
 			perror("Failed to read input");
 			exit(EXIT_FAILURE);
 		}
 	}
-		printf("input is %s\n", receive);
 
 	return (receive);
 }

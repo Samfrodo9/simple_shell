@@ -46,12 +46,7 @@ char **_strtok(char *str, char *delim)
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
-	i = 0;
-	while(strings[i])
-			{
-				printf("strings[%d] = %s\n", i, strings[i]);
-				i++;
-			}
+
 	return (strings);
 }
 
@@ -62,6 +57,8 @@ char **_strtok(char *str, char *delim)
 
 void free_tokens(char **tokens)
 {
+	unsigned int i;
+
 	if (!tokens)
 		return;
 
