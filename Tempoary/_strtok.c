@@ -7,7 +7,7 @@
  * Return: an array of strings
  */
 
-char **_strtok(char *str, char *delim)
+char **_strtok(char *str, const char *delim)
 {
 	char **strings = NULL;
 	char *temp, *copy = NULL;
@@ -46,8 +46,7 @@ char **_strtok(char *str, char *delim)
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
-
-	return (strings);
+	return strings;
 }
 
 /**
@@ -57,8 +56,6 @@ char **_strtok(char *str, char *delim)
 
 void free_tokens(char **tokens)
 {
-	unsigned int i;
-
 	if (!tokens)
 		return;
 

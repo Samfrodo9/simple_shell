@@ -1,34 +1,57 @@
 #include "shell.h"
 
+/**
+* execute - executes a command
+* @av: argument it takes
+* Return: (-1)
+*/
 
-int _execute(char *path, char **argv)
+int execute(char *av[])
 {
-	struct stat check;
-	pid_t forkRV;
-	int status;
-
-	if (stat(path, &check) == 0)
+	if (av == NULL || av[0] == NULL || av[0][0] == '\0')
 	{
-		printf("Found %s\n", path);
-		sleep(3);
+		printf("Invalid command.\n");
+        return (-1);
+    }
 
-		forkRV = fork();
-		if (forkRV == -1)
-			perror("Error: ");
+    pid_t forkRV;
+    int status;
 
-		if (forkRV == 0)
+    forkRV = fork();
+    
+	if (forkRV < 0)
+	{
+        perror("Fork failed");
+        return (-1);
+    }
+	
+	if (forkRV == 0)
+	{
+        if (execvp(av[0], av) == -1)
 		{
-			execve(path, argv, NULL);
-		}
-
-		else
+            perror("Error");
+			free_tokens(av);
+            exit(EXIT_FAILURE);
+        }
+    }
+	
+	else
+	{
+        do {
+            if (waitpid(forkRV, &status, WUNTRACED) == -1)
+			{
+                /* waitpid failed */
+                perror("Waitpid failed");
+                return (-1);
+            }
+        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	
+		if (WIFEXITED(status))
 		{
-			printf("Executing command\n");
-			wait(&status);
-			printf("Finished executing\n");
-			return (1);
-
-		}
+            /* return WEXITSTATUS(status); */
+			return (-1);
+        }
 	}
-	return (0);
+
+    return (-1);
 }

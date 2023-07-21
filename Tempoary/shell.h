@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 
 extern char **environ;
-
 char *_strstr(char *haystack, char *needle);
 void prompt(void);
 int _putchar(char c);
@@ -27,18 +26,5 @@ void add_path(char *arg, char **argv);
 int _execute(char *path, char **argv);
 int check(char *str, char**buffer);
 void free_tokens(char **tokens);
-void putstream(char *str, int stream);
-int executeBuiltins(char **str);
-int exec_cd_dir(char **argv);
-int exec_env(char **str);
-int exec_exit(char **str);
-int execute(char *av[]);
-
-struct BuiltInCommands
-{
-    const char *name;
-    int (*funct)(char **);
-};
-
 
 #endif

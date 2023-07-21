@@ -8,19 +8,21 @@
 char *_getline(void)
 {
 	char *receive = NULL;
-	size_t n = 10;
-	ssize_t get_rv;
+	size_t n = 0;
 
-	get_rv = getline(&receive, &n, stdin);
-	if (get_rv == -1)
+	if (getline(&receive, &n, stdin) == -1)
 	{
-		printf("Error");
-		free(receive);
-	}
-	if (feof(stdin))
-	{
-		printf("Error 2");
-		free(receive);
+		if (feof(stdin))
+		{
+			free(receive);
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			free(receive);
+			perror("Failed to read input");
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	return (receive);
