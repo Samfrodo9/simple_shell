@@ -29,5 +29,5 @@ int executeBuiltins(char **str)
         i++;
     }
 
-    return (exec_vp(str));
+    return (execute(str));
 }

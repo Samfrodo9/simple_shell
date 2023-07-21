@@ -32,7 +32,7 @@ int executeBuiltins(char **str);
 int exec_cd_dir(char **argv);
 int exec_env(char **str);
 int exec_exit(char **str);
-int exec_vp(char *av[]);
+int execute(char *av[]);
 
 struct BuiltInCommands
 {

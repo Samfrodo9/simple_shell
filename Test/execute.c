@@ -1,6 +1,12 @@
 #include "shell.h"
 
-int exec_vp(char *av[])
+/**
+* execute - executes a command
+* @av: argument it takes
+* Return: (-1)
+*/
+
+int execute(char *av[])
 {
 	if (av == NULL || av[0] == NULL || av[0][0] == '\0')
 	{
@@ -42,7 +48,8 @@ int exec_vp(char *av[])
 	
 		if (WIFEXITED(status))
 		{
-            return WEXITSTATUS(status);
+            /* return WEXITSTATUS(status); */
+			return (-1);
         }
 	}
 

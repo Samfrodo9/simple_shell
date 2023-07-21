@@ -33,12 +33,14 @@ int exec_cd_dir(char **argv)
     if (chdir(new_path) != 0)
     {
         perror("cd failed");
-        return (0);
+        return (-1);
     }
 
-    current_path - getcwd(NULL, 0);
+    current_path = getcwd(NULL, 0);
     setenv("PWD", current_path, 1);
     free(current_path);
+
+    return (-1);
 
 }
 
@@ -63,7 +65,7 @@ int exec_env(char **str)
         write(STDIN_FILENO, &line, 1);
         a++;
     }
-    return (0);
+    return (-1);
 }
 
 
@@ -78,7 +80,7 @@ int exec_exit(char **str)
 {
     if (str[1])
     {
-        return (atoi(str[1]));
+        return atoi(str[1]);
     }
     else
         return (0);
