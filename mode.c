@@ -9,7 +9,7 @@
 void interactive(void)
 {
 	char *stream = NULL;
-	char *terminal = NULL; /* Interactive command one to tokenize to command two */
+	char *terminal = NULL; /* Interactive command oneto tokenize to command two */
 	char **str = NULL; /* Interactive command two to pass to execve */
 	int control = -1;
 	char delim[] = {' ', '\n'};
@@ -19,7 +19,7 @@ void interactive(void)
 		stream = _getline(); /* command from keyboard */
 		terminal = strtok(stream, ";"); /* terminal = "ls -l /tmp" */
 
-		while(terminal)
+		while (terminal)
 		{
 			/* str = {"ls",  */
 			str = _strtok(terminal, delim); /* Return an array of strings */

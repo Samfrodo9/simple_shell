@@ -25,7 +25,7 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 void add_path(char *arg, char **argv);
 int _execute(char *path, char **argv);
-int check(char *str, char**buffer);
+int check(char *str, char **buffer);
 void free_tokens(char **tokens);
 void putstream(char *str, int stream);
 int executeBuiltins(char **str);
@@ -34,11 +34,17 @@ int exec_env(char **str);
 int exec_exit(char **str);
 int execute(char *av[]);
 
+/**
+ * struct BuiltInCommands - Structure to hold information
+ * about builtin commands
+ * @name: The name of the built-in command
+ * @funct: A function pointer to the corresponding built-in function
+ */
+
 struct BuiltInCommands
 {
-    const char *name;
-    int (*funct)(char **);
+	const char *name;
+	int (*funct)(char **);
 };
-
 
 #endif

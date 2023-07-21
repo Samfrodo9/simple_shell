@@ -15,19 +15,19 @@ char **_strtok(char *str, char *delim)
 
 	if (!str)
 		return (NULL);
-
 	copy = strdup(str);
 	if (!copy)
 		exit(EXIT_FAILURE);
 
 	temp = strtok(copy, delim);
-	while (temp != NULL) /* Count the number of tokens to allocate memory for string */
+	while (temp != NULL) /* Count the no of tokens to allocate mem for string */
 	{
 		num_tokens++;
 		temp = strtok(NULL, delim);
 	}
 	free(copy);
-	strings = malloc(sizeof(char *) * (num_tokens + 1)); /* Allocate memory for strings array */
+	strings = malloc(sizeof(char *) * (num_tokens + 1));
+	/* Allocate memory for strings array */
 	if (!strings)
 		exit(EXIT_FAILURE);
 
@@ -38,7 +38,8 @@ char **_strtok(char *str, char *delim)
 		if (!strings[i])
 		{
 			for (j = 0; j < i; j++)
-				free(strings[j]); /* If memory allocation fails, free all previously allocated memory and exit */
+				free(strings[j]);
+/* If memory allocation fails, free all previously allocated memory and exit */
 			free(strings);
 			exit(EXIT_FAILURE);
 		}
@@ -46,13 +47,12 @@ char **_strtok(char *str, char *delim)
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
-
 	return (strings);
 }
 
 /**
- * free_token - Function to free the memory allocated by _strtok
- * @token: tokens to free
+ * free_tokens - Function to free the memory allocated by _strtok
+ * @tokens: tokens to free
  */
 
 void free_tokens(char **tokens)
@@ -62,7 +62,7 @@ void free_tokens(char **tokens)
 	if (!tokens)
 		return;
 
-	for (int i = 0; tokens[i]; i++)
+	for (i = 0; tokens[i]; i++)
 		free(tokens[i]);
 
 	free(tokens);

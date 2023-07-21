@@ -23,18 +23,20 @@ char *_strstr(char *haystack, char *needle)
 		if (!needle[j])
 			return (&(haystack[i + _strlen(needle) + 1]));
 	}
+	return (NULL);
 }
 
 /**
- * _puts - a function that prints to stdout
+ * putstream - a function that prints to stdout
  * @str: input string to print
- * 
+ * @stream: where to print the string
+ *
  * Return: a single character
 */
 
 void putstream(char *str, int stream)
 {
-	while(*str != '\0')
+	while (*str != '\0')
 	{
 		write(stream, str, 1);
 		str++;
