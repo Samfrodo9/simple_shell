@@ -55,11 +55,11 @@ void non_interactive(void)
 
 		prompt();
 		stream = get_input();
-		printf("Input is %s\n", stream);
+		/* printf("Input is %s\n", stream); */
 
 		terminal = strtok(stream, ";");
 
-		printf("First token is %s\n", terminal);
+		/* printf("First token is %s\n", terminal); */
 
 		while (terminal)
 		{
@@ -68,7 +68,7 @@ void non_interactive(void)
 			terminal = strtok(NULL, ";");
 		}
 
-		printf(" I is %d\n", i);
+		/* printf(" I is %d\n", i); */
 
 		free(stream);
 		free_tokens(str);

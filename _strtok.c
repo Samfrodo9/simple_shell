@@ -47,7 +47,7 @@ char **_strtok(char *str, char *delim)
 		temp = strtok(NULL, delim);
 	}
 	strings[i] = NULL;
-	print_token(strings);
+	/* print_token(strings); */
 	return (strings);
 }
 
