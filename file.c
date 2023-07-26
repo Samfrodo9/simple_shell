@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _strstr - locates a substring
+ * _strstr - locates a substring.
  * @haystack: string to search in
  * @needle: substring to look for
  *
- * Return: pointer to the beginning of
- * the located substring or NULL if not found
+ * Return: pointer to the beginning of the located
+ *         substring or NULL if not found
  */
 
 char *_strstr(char *haystack, char *needle)
@@ -31,7 +31,7 @@ char *_strstr(char *haystack, char *needle)
  * @str: input string to print
  * @stream: where to print the string
  *
- * Return: a single character
+ * Return: a single character.
 */
 
 void putstream(char *str, int stream)
