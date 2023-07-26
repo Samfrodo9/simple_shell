@@ -37,9 +37,9 @@ void interactive(void)
 }
 
 /**
- * non_interactive - prints prompt.
+ * non_interactive - prints prompt ($ ).
  *
- * Return: void
+ * Return: void.
  */
 
 void non_interactive(void)
