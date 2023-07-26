@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * exec_cd_dir - function to change the working directory
+ * exec_cd_dir - a function that changes the working directory
  * @argv: arguments
  *
  * Return: 1 on success, 0 on failure
