@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _strtok - strtok function
- *@str: str to tokenize
- *@delim: delimeter
- * Return: an array of strings
+ * _strtok - strtok function implementation.
+ *@str: str to tokenize.
+ *@delim: delimeter.
+ * Return: an array of strings.
  */
 
 char **_strtok(char *str, char *delim)
@@ -52,8 +52,8 @@ char **_strtok(char *str, char *delim)
 }
 
 /**
- * free_tokens - Function to free the memory allocated by _strtok
- * @tokens: tokens to free
+ * free_tokens - Function to free the memory allocated by _strtok.
+ * @tokens: tokens to free.
  */
 
 void free_tokens(char **tokens)
