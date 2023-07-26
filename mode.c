@@ -11,7 +11,7 @@ char **_strtokr(char *str, char *delim);
 void interactive(void)
 {
 	char *stream = NULL;
-	char *terminal = NULL; /* Interactive command oneto tokenize to command two */
+	char *terminal = NULL; /* Interactive command one to tokenize to command two */
 	char **str = NULL; /* Interactive command two to pass to execve */
 	int control;
 	/* char delim[] = {' ', '\n'}; */
