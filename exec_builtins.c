@@ -4,7 +4,7 @@
  * exec_cd_dir - a function that changes the working directory
  * @argv: arguments
  *
- * Return: 1 on success, 0 on failure
+ * Return: 1 on success, 0 on failure.
 */
 
 int exec_cd_dir(char **argv)
