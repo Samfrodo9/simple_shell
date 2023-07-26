@@ -43,8 +43,8 @@ int execute(char *av[])
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 		if (WIFEXITED(status))
 		{
-			return (-1); /* I'm supposed to return WIFEXITED(STATUS) here */
+			return (0); /* I'm supposed to return WIFEXITED(STATUS) here */
 		}
 	}
-		return (-1);
+		return (0);
 	}

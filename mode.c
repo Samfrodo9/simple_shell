@@ -13,7 +13,7 @@ void interactive(void)
 	char *stream = NULL;
 	char *terminal = NULL; /* Interactive command oneto tokenize to command two */
 	char **str = NULL; /* Interactive command two to pass to execve */
-	int control = -1;
+	int control;
 	/* char delim[] = {' ', '\n'}; */
 
 	do {
@@ -33,7 +33,7 @@ void interactive(void)
 		free_tokens(str);
 		if (control >= 0)
 			exit(control);
-	} while (control == -1);
+	} while (1);
 }
 
 /**
@@ -51,7 +51,7 @@ void non_interactive(void)
 	/* char delim[] = {' ', '\n'}; */
 
 	do {
-		prompt();
+		/* prompt(); */
 		stream = get_input();
 		/* printf("Input is %s\n", stream); */
 
@@ -72,5 +72,5 @@ void non_interactive(void)
 		free_tokens(str);
 		if (control >= 0)
 			exit(control);
-	} while (control == -1);
+	} while (1);
 }
