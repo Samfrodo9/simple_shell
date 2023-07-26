@@ -1,8 +1,9 @@
 #include "shell.h"
 
 /**
-* execute - executes a command
+* execute - A function that executes a command.
 * @av: argument it takes
+*
 * Return: (-1)
 */
 
