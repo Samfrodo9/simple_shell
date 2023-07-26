@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * prompt - A function that prints a prompt($)
+ * prompt - A function that prints a prompt ($).
  *
  * Return: void
  */
@@ -13,8 +13,8 @@ void prompt(void)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _putchar - writes the character c to stdout.
+ * @c: The character to print.
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately
