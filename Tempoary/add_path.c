@@ -2,8 +2,8 @@
 
 /**
  * add_path - adds the path.
- *@arg: first argument from keyboard
- *@argv: array of strings
+ *@arg: first argument from keyboard.
+ *@argv: array of strings.
  *
  * Return: void
  */
