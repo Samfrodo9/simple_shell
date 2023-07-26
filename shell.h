@@ -39,12 +39,15 @@ int execute(char *av[]);
  * about builtin commands
  * @name: The name of the built-in command
  * @funct: A function pointer to the corresponding built-in function
+ *
+ * Description: This structure does the above
  */
 
-struct BuiltInCommands
+typedef struct BuiltInCommands
 {
 	const char *name;
 	int (*funct)(char **);
-};
+} command;
+
 
 #endif
