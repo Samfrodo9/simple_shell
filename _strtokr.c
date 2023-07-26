@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _strtokr - A function that tokenizes input gotten using read
- * @str: token to tokenize
- * @delim: the delimeter
+ * _strtokr - A function that tokenizes input gotten using read.
+ * @str: token to tokenize.
+ * @delim: the delimeter.
  *
- * Return: The tokenize strings
+ * Return: The tokenize strings.
  */
 
 char **_strtokr(char *str, char *delim)
