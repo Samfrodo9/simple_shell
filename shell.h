@@ -37,6 +37,9 @@ void terminate(ssize_t n, char *k);
 char *get_input(void);
 char **_strtokr(char *str, char *delim);
 void print_token(char **);
+int exec_unsetenv(char **str);
+int exec_setenv(char **str);
+
 /**
  * struct BuiltInCommands - Structure to hold information
  * about builtin commands

@@ -84,3 +84,56 @@ int exec_exit(char **str)
 		return (0);
 }
 
+/**
+ * exec_setenv - Initialize a new environment variable or modify anexisting one
+ * @str: Argument vector containing the commands
+ *
+ * Return: 0 on success and 1 on failure
+ */
+int exec_setenv(char **str)
+{
+	char *variable, *value;
+
+	if (str[1] == NULL || str[2] == NULL)
+	{
+		fprintf(stderr, "Usage: setenv VARIABLE VALUE\n");
+		return (1);
+	}
+
+	variable = str[1];
+	value = str[2];
+
+	if (setenv(variable, value, 1) != 0)
+	{
+		perror("setenv");
+		return (1);
+	}
+
+	return (0);
+}
+
+
+/**
+ * exec_unsetenv - Remove an environment variable
+ * @str: Argument vector containing the commands
+ *
+ * Return: 0 on success and 1 on failure
+ */
+
+
+int exec_unsetenv(char **str)
+{
+	if (str[1] == NULL)
+	{
+		fprintf(stderr, "Usage: unsetenv VARIABLE\n");
+		return (1);
+	}
+
+	if (unsetenv(str[1]) != 0)
+	{
+		perror("unsetenv");
+		return (1);
+	}
+	return (0);
+}
+
