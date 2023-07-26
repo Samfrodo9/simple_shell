@@ -69,9 +69,15 @@ void free_tokens(char **tokens)
 	free(tokens);
 }
 
+/**
+ * print_token - A function to print an array of strings
+ * @token: strings to print
+ */
+
 void print_token(char **token)
 {
 	int i = 0;
+
 	while (token[i])
 	{
 		printf("token[%d] = %s\n", i, token[i]);
