@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * get_input - A function to read inputs from non-interactive mode
+ * get_input - A function that read inputs from non-interactive mode.
  *
  * Return: String read
  */
