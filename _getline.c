@@ -3,7 +3,7 @@
 /**
  * _getline - getline function implementation.
  *
- * Return: Returns the input received
+ * Return: Returns the input received.
  */
 
 char *_getline(void)
