@@ -33,7 +33,8 @@ int exec_cd_dir(char **argv);
 int exec_env(char **str);
 int exec_exit(char **str);
 int execute(char *av[]);
-
+void terminate(ssize_t n, char *k);
+char *get_input(void);
 /**
  * struct BuiltInCommands - Structure to hold information
  * about builtin commands

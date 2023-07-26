@@ -42,5 +42,27 @@ void interactive(void)
 
 void non_interactive(void)
 {
-	_putchar('\n');
+	char *stream = NULL;
+	char *terminal = NULL; /* Non interactive command to tokenize */
+	char **str = NULL; /* Non interactive command to pass to execve */
+	int control = -1;
+	char delim[] = {' ', '\n'};
+
+	do {
+		prompt();
+		stream = get_input();
+		terminal = strtok(stream, ";");
+
+		while (terminal)
+		{
+			str = _strtok(terminal, delim);
+			control = executeBuiltins(str);
+			terminal = strtok(NULL, ";");
+		}
+
+		free(stream);
+		free_tokens(str);
+		if (control >= 0)
+			exit(control);
+	} while (control == -1);
 }
