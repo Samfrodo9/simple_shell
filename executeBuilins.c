@@ -15,8 +15,6 @@ int executeBuiltins(char **str)
 		{"cd", &exec_cd_dir},
 		{"env", &exec_env},
 		{"exit", &exec_exit},
-		{"setenv", &exec_setenv},
-		{"unsetenv", &exec_unsetenv},
 		{NULL, NULL}
 	};
 
