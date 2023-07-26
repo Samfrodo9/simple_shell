@@ -2,7 +2,7 @@
 
 
 /**
- * interactive - prints prompt.
+ * interactive - prints prompt ($ ).
  *
  * Return: void
  */
