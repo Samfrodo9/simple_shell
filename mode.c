@@ -3,9 +3,9 @@
 char **_strtokr(char *str, char *delim);
 
 /**
- * interactive - prints prompt.
+ * interactive - prints prompt ($ ).
  *
- * Return: void
+ * Return: void.
  */
 
 void interactive(void)
