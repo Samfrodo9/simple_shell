@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * check - a function to check and run files
+ * check - a function to check and run files.
  *
- * Return: an integer
+ * Return: an integer.
  */
 
 int check(char *str, char **buffer)
