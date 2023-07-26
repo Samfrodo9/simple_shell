@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
-* executeBuiltins - a function to execute appropriate builtin commands
+* executeBuiltins - a function to execute appropriate builtin commands.
 * @str: argument vector containing the command and it argumments
 *
-* Return: 0 if the command is a built-in and successfully executed
-* , and -1 if not
+* Return: 0 if the command is a built-in and successfully executed.
+*         and -1 if not
 */
 
 

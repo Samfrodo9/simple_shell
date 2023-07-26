@@ -45,10 +45,10 @@ int exec_cd_dir(char **argv)
 
 
 /**
- * exec_env - a function that prints environment variables
- * @str: The string
+ * exec_env - a function that prints environment variables.
+ * @str: The string.
  *
- * Return: 0 on success
+ * Return: 0 on success.
 */
 
 int exec_env(char **str)
@@ -68,10 +68,10 @@ int exec_env(char **str)
 
 
 /**
-* exec_exit - A function that terminates a process
-* @str: argument
+* exec_exit - A function that terminates a process.
+* @str: argument.
 *
-* Return: 0 on success
+* Return: 0 on success.
 */
 
 int exec_exit(char **str)
@@ -85,10 +85,11 @@ int exec_exit(char **str)
 }
 
 /**
- * exec_setenv - Initialize a new environment variable or modify anexisting one
- * @str: Argument vector containing the commands
+ * exec_setenv - Initialize a new environment variable or modify an existing
+ * one.
+ * @str: Argument vector containing the commands.
  *
- * Return: 0 on success and 1 on failure
+ * Return: 0 on success and 1 on failure.
  */
 int exec_setenv(char **str)
 {
@@ -114,10 +115,10 @@ int exec_setenv(char **str)
 
 
 /**
- * exec_unsetenv - Remove an environment variable
- * @str: Argument vector containing the commands
+ * exec_unsetenv - Remove an environment variable.
+ * @str: Argument vector containing the commands.
  *
- * Return: 0 on success and 1 on failure
+ * Return: 0 on success and 1 on failure.
  */
 
 
