@@ -46,24 +46,23 @@ int exec_cd_dir(char **argv)
 
 /**
  * exec_env - a function that prints environment variables
- * @str: argument vector containing the command and it argumments
+ * @str: The string
+ *
  * Return: 0 on success
 */
 
 int exec_env(char **str)
 {
+	int i = 0;
 
-	int a = 0;
-	char line = '\n';
+	(void)str;
 
-	(void)(**str);
-
-	while (environ[a])
+	while (environ[i])
 	{
-		write(STDIN_FILENO, environ[a], strlen(environ[a]));
-		write(STDIN_FILENO, &line, 1);
-		a++;
+		_puts(environ[i]);
+		i++;
 	}
+
 	return (0);
 }
 
