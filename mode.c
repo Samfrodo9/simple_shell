@@ -51,7 +51,7 @@ void non_interactive(void)
 	/* char delim[] = {' ', '\n'}; */
 
 	do {
-		/* prompt(); */
+		 prompt();
 		stream = get_input();
 		/* printf("Input is %s\n", stream); */
 
